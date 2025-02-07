@@ -1,0 +1,121 @@
+group,breed_name,note
+Toy,chihuahua,
+Toy,japanese_spaniel,aka Japanese Chin
+Toy,maltese,
+Toy,pekinese,
+Toy,shih-tzu,
+Toy,blenheim_spaniel,aka Cavalier King Charles Spaniel
+Toy,papillon,
+Toy,toy_terrier,aka Toy Fox Terrier
+Hound,rhodesian_ridgeback,
+Hound,afghan_hound,
+Hound,basset,aka Basset Hound
+Hound,beagle,
+Hound,bloodhound,
+Hound,bluetick,aka Bluetick Coonhound
+Hound,black-and-tan_coonhound,
+Hound,walker_hound,aka Terring Walker Coonhound
+Hound,english_foxhound,
+Hound,redbone,aka Redbone Coonhound
+Hound,borzoi,
+Hound,irish_wolfhound,
+Toy,italian_greyhound,
+Hound,whippet,
+Hound,ibizan_hound,
+Hound,norwegian_elkhound,
+Hound,otterhound,
+Hound,saluki,
+Hound,scottish_deerhound,
+Sporting,weimaraner,
+Terrier,staffordshire_bullterrier,
+Terrier,american_staffordshire_terrier,
+Terrier,bedlington_terrier,
+Terrier,border_terrier,
+Terrier,kerry_blue_terrier,
+Terrier,irish_terrier,
+Terrier,norfolk_terrier,
+Terrier,norwich_terrier,
+Toy,yorkshire_terrier,
+Terrier,wire-haired_fox_terrier,
+Terrier,lakeland_terrier,
+Terrier,sealyham_terrier,
+Terrier,airedale,aka Airedale Terrier
+Terrier,cairn,aka Cairn Terrier
+Terrier,australian_terrier,
+Terrier,dandie_dinmont,aka Dandie Dinmont Terrier
+Terrier,boston_bull,aka Boston Terrier
+Terrier,miniature_schnauzer,
+Working,giant_schnauzer,
+Working,standard_schnauzer,
+Terrier,scotch_terrier,aka Scottish Terrier
+Non-Sporting,tibetan_terrier,
+Toy,silky_terrier,
+Terrier,soft-coated_wheaten_terrier,
+Terrier,west_highland_white_terrier,
+Non-Sporting,lhasa,aka Lhasa Apso
+Sporting,flat-coated_retriever,
+Sporting,curly-coated_retriever,
+Sporting,golden_retriever,
+Sporting,labrador_retriever,
+Sporting,chesapeake_bay_retriever,
+Sporting,german_short-haired_pointer,aka German Shorthaired Pointer
+Sporting,vizsla,
+Sporting,english_setter,
+Sporting,irish_setter,
+Sporting,gordon_setter,
+Sporting,brittany_spaniel,aka Brittany
+Sporting,clumber,aka Clumber Spaniel
+Sporting,english_springer,aka English Springer Spaniel
+Sporting,welsh_springer_spaniel,
+Sporting,cocker_spaniel,
+Sporting,sussex_spaniel,
+Sporting,irish_water_spaniel,
+Working,kuvasz,
+Non-Sporting,schipperke,
+Herding,groenendael,aka Belgian Sheepdog
+Herding,malinois,aka Belgain Malinos
+Herding,briard,
+Foundation Stock Service,kelpie,aka Australian Kelpie
+Working,komondor,
+Herding,old_english_sheepdog,
+Herding,shetland_sheepdog,
+Herding,collie,
+Herding,border_collie,
+Herding,bouvier_des_flandres,
+Working,rottweiler,
+Herding,german_shepherd,
+Working,doberman,aka Doberman Pinscher
+Toy,miniature_pinscher,
+Working,greater_swiss_mountain_dog,
+Working,bernese_mountain_dog,
+Foundation Stock Service,appenzeller,aka Appenzeller Sennehund
+Herding,entlebucher,aka Entlebucher Mountain Dog
+Working,boxer,
+Working,bull_mastiff,aka Bullmastiff
+Working,tibetan_mastiff,
+Non-Sporting,french_bulldog,
+Working,great_dane,
+Working,saint_bernard,
+Non-Sporting,eskimo_dog,aka American Eskimo Dog
+Working,malamute,aka Alaskan Malamute
+Working,siberian_husky,
+Toy,affenpinscher,
+Hound,basenji,
+Toy,pug,
+Working,leonberg,aka Leonberger
+Working,newfoundland,
+Working,great_pyrenees,
+Working,samoyed,
+Toy,pomeranian,
+Non-Sporting,chow,aka Chow Chow
+Non-Sporting,keeshond,
+Toy,brabancon_griffon,aka Brussels Griffon
+Herding,pembroke,aka Pembroke Welsh Corgi
+Herding,cardigan,aka Cardigan Welsh Corgi
+Toy,toy_poodle,aka Poodle (Toy)
+Non-Sporting,miniature_poodle,aka Poodle (Miniature)
+Non-Sporting,standard_poodle,aka Poodle (Standard)
+Non-Sporting,mexican_hairless,aka Xoloitzcuintli
+Wild,dingo,
+Wild,dhole,
+Wild,african_hunting_dog,

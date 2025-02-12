@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breed Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Align from top but keep a gap at the top */
+            padding: 20px; /* Add padding around the content */
+            height: 100vh;
+            background-color: #f4f4f4;
+            overflow-y: auto; /* Allows scrolling if needed */
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input, button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 20px; /* Add space between image preview and button */
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result, #guessResult {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        img {
+            margin-top: 10px;
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        #fileInput {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #imagePreview {
+            margin-top: 20px;
+            max-width: 500px; /* Limit the maximum width */
+            width: 100%; /* Ensure the image takes up available space without overflowing */
+            display: none;
+            text-align: center; /* Center align the preview */
+        }
+
+        #imagePreview img {
+            width: 100%;
+            max-width: 400px; /* Limit the image size */
+            height: auto;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>📸 Upload a Dog Image 📸</h2>
+    <input type="file" id="fileInput" onchange="previewImage(event)">
+    <div id="imagePreview">
+        <h3>Image Preview:</h3>
+        <img id="previewImg" src="" alt="Uploaded Image Preview">
+    </div>
+    <button onclick="uploadFile()">Predict</button>
+    <p id="result"></p>
+
+    <hr style="width: 80%; margin: 40px auto; border: 1px solid #ccc;">
+
+    <h2 style="margin-bottom: 10px;">❓ Guess the Dog Breed ❓</h2>
+    <img id="testImage" src="" alt="Test Image">
+    <button onclick="showBreed()">Show Breed</button>
+    <p id="guessResult"></p>
+    <button onclick="getRandomImage()">New Image</button>
+
+    <script>
+        function previewImage(event) {
+            // Get the file input
+            let file = event.target.files[0];
+            let reader = new FileReader();
+            
+            reader.onload = function(e) {
+                // Set the source of the preview image
+                let previewImg = document.getElementById("previewImg");
+                previewImg.src = e.target.result;
+                
+                // Display the image preview
+                document.getElementById("imagePreview").style.display = "block";
+            };
+            
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        async function uploadFile() {
+            let fileInput = document.getElementById("fileInput");
+            let file = fileInput.files[0];
+
+            if (!file) {
+                console.error("No file selected!");
+                alert("Please select an image file.");
+                return;
+            }
+
+            let formData = new FormData();
+            formData.append("file", file);
+
+            try {
+                let response = await fetch("/predict", { method: "POST", body: formData });
+
+                if (!response.ok) {
+                    let errorText = await response.text();
+                    console.error("Server Error:", errorText);
+                    alert("Error: " + errorText);
+                    return;
+                }
+
+                let result = await response.json();
+                console.log("Prediction Result:", result);
+
+                // Display breed and confidence score
+                document.getElementById("result").innerText = 
+                    `Predicted Breed: ${result.breed} (Confidence: ${(result.confidence * 100).toFixed(2)}%)`;
+
+            } catch (error) {
+                console.error("Fetch Error:", error);
+                alert("Something went wrong! Check the console for details.");
+            }
+        }
+
+        function showBreed() {
+            let breed = document.getElementById("testImage").getAttribute("data-breed");
+            document.getElementById("guessResult").innerText = "Correct Breed: " + breed;
+        }
+
+        // Load a random image when the page loads
+        window.onload = getRandomImage;
+
+        // Function to load a random image from the Flask server
+        async function getRandomImage() {
+            try {
+                let response = await fetch("/random_image");
+                if (!response.ok) {
+                    throw new Error('Failed to fetch random image');
+                }
+
+                let data = await response.json();
+                let randomImage = data.image_url;
+                let breed = data.breed;
+
+                document.getElementById("testImage").src = randomImage;
+                document.getElementById("testImage").setAttribute("data-breed", breed);
+            } catch (error) {
+                console.error("Error fetching random image:", error);
+            }
+        }
+    </script>
+</body>
+</html>

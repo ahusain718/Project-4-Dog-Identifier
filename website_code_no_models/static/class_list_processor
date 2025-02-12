@@ -1,0 +1,23 @@
+import os
+
+# Path to your dataset (where each subfolder represents a breed)
+DATASET_DIR = "static/Images"  # Replace with actual path
+
+# Extract breed names from folder names
+class_labels = []
+for breed_folder in sorted(os.listdir(DATASET_DIR)):  # Sorting ensures consistency
+    if os.path.isdir(os.path.join(DATASET_DIR, breed_folder)):
+        breed_name = breed_folder.split("-", 1)[-1]  # Remove leading 'n' numbers
+        breed_name = breed_name.replace("_", " ")  # Convert underscores to spaces
+        class_labels.append(breed_name)
+
+# Print the extracted class labels
+print(class_labels)
+
+# Path to save the file inside the static folder
+file_path = os.path.join("static", "class_labels.txt")
+
+# Save the labels to a file for later use
+with open(file_path, "w") as f:
+    for label in class_labels:
+        f.write(label + "\n")

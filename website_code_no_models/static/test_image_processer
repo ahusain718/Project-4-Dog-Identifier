@@ -1,0 +1,39 @@
+import os
+import random
+import shutil
+
+# Define paths
+SOURCE_DIR = "static/Images"  # Replace with the actual dataset path
+DEST_DIR = "static/test_images"
+
+# Ensure the destination directory exists
+os.makedirs(DEST_DIR, exist_ok=True)
+
+# Iterate over each breed folder
+for breed_folder in os.listdir(SOURCE_DIR):
+    breed_path = os.path.join(SOURCE_DIR, breed_folder)
+
+    if os.path.isdir(breed_path):  # Ensure it's a folder
+        images = [f for f in os.listdir(breed_path) if f.endswith((".jpg", ".jpeg", ".png"))]
+        
+        if len(images) < 2:
+            print(f"Skipping {breed_folder} (not enough images)")
+            continue
+
+        # Extract the breed name (remove the leading 'n' number)
+        breed_name = breed_folder.split("-", 1)[-1]  # Keep only the part after the first hyphen
+        breed_name = breed_name.replace("_", " ")  # Replace underscores with spaces for readability
+
+        # Select two random images
+        selected_images = random.sample(images, 2)
+
+        for i, img_name in enumerate(selected_images, start=1):
+            src_img_path = os.path.join(breed_path, img_name)
+            new_img_name = f"{breed_name}_{i}.jpg"  # Format: "Afghan hound_1.jpg"
+            dest_img_path = os.path.join(DEST_DIR, new_img_name)
+
+            # Copy image to new location
+            shutil.copy(src_img_path, dest_img_path)
+            print(f"Copied {img_name} -> {new_img_name}")
+
+print("Image selection and renaming complete!")

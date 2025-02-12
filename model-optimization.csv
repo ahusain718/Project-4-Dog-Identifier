@@ -1,0 +1,25 @@
+﻿ID,Model Type,Dense Layers (Range),Activation,Dropout (Range),Frozen Layers,Early Stopping,Epochs,Learning Rate,Accuracy,Loss,Notes,
+0,Custom CNN (Tunable),"(1,2)",relu,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+Experiment ID,Model Type,Dense Layers (Range),Activation,Dropout (Range),L2 Regularization,Frozen Layers,Early Stopping,Epochs,Learning Rate,Accuracy,Loss,Notes
+1,MobileNet (Baseline),1,ReLU,0.3,None,All,No,10,0.001,72%,0.75,"Baseline MobileNet, no tuning"
+2,MobileNet (Tuned),2,ReLU,0.3,None,All,Yes,20,0.0001,75%,0.68,Added early stopping
+3,MobileNet (Optimized),2,ReLU,0.4,0.0005,All,Yes,35,0.0001,80%,1.5,Added L2 regularization & higher dropout
